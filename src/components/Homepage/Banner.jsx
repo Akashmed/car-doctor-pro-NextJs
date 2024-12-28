@@ -31,7 +31,7 @@ const Banner = () => {
             <div className="carousel w-full container">
                 {
                     banners.map((bnr, indx) => (
-                        <div id={`slide${indx + 1}`} className="carousel-item relative w-full">
+                        <div key={indx} id={`slide${indx + 1}`} className="carousel-item relative w-full">
                             <img src={`/assets/images/banner/${indx + 1}.jpg`} className="w-full rounded-xl object-cover md:object-top" />
                             <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                                 <div className='text-white space-y-7 pl-12 w-1/2'>
