@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import SocialLogin from '@/components/SocialLogin';
 
 
 const page = () => {
@@ -29,7 +30,7 @@ const page = () => {
             }
 
             const data = await res.json();
-            if(data.data.acknowledged){
+            if (data.data.acknowledged) {
                 e.target.reset();
             }
         } catch (error) {
@@ -73,9 +74,8 @@ const page = () => {
                     </form>
                     <div className='flex flex-col items-center mt-4'>
                         <span>Or sign up with</span>
-                        <div className='flex justify-center items-center gap-3 mt-4'>
-                            <button className='text-2xl rounded-full p-3 bg-base-200'><FcGoogle /></button>
-                            <button className='text-2xl rounded-full p-3 bg-base-200'><FaGithub /></button>
+                        <div>
+                            <SocialLogin />
                         </div>
                     </div>
                     <p className='my-4 text-center'>Already have an account ? <Link href={'/login'} className='text-orange-600 font-bold'>Login</Link> </p>

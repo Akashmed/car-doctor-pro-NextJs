@@ -1,10 +1,9 @@
 'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import SocialLogin from '@/components/SocialLogin';
 
 
 const page = () => {
@@ -52,9 +51,8 @@ const page = () => {
                     </form>
                     <div className='flex flex-col items-center mt-4'>
                         <span>Or sign in with</span>
-                        <div className='flex justify-center items-center gap-3 mt-4'>
-                            <button className='text-2xl rounded-full p-3 bg-base-200'><FcGoogle /></button>
-                            <button className='text-2xl rounded-full p-3 bg-base-200'><FaGithub /></button>
+                        <div>
+                            <SocialLogin/>
                         </div>
                     </div>
                     <p className='my-4 text-center'>New to Car Doctor ? <Link href={'/signup'} className='text-orange-600 font-bold'>Sign Up</Link> </p>
