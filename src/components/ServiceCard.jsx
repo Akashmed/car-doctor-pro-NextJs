@@ -14,7 +14,7 @@ const ServiceCard = ({ service }) => {
                 <h2 className="card-title text-slate-900">{title}</h2>
                 <div className="card-actions flex justify-between">
                     <button className="text-lg font-semibold text-[#FF3811]">Price: ${price}</button>
-                    <Link href={''} className="text-lg font-semibold text-[#FF3811]"><FaArrowRight/></Link>
+                    <Link href={`services/${_id}`} className="text-lg font-semibold text-[#FF3811]"><FaArrowRight/></Link>
                 </div>
             </div>
         </div>

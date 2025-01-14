@@ -44,7 +44,7 @@ const page = () => {
                 <Image src={'/assets/images/login/login.svg'} height={340} width={440} alt='login page' />
             </div>
             <div className='text-black flex justify-center items-center w-full'>
-                <div className="w-2/3 rounded-lg border border-base-300 p-7 h-[90%] flex flex-col justify-center">
+                <div className="w-2/3 rounded-lg shadow-lg border border-base-300 p-7 h-[90%] flex flex-col justify-center">
                     <h1 className="text-3xl text-center font-bold">Sign Up</h1>
                     <form onSubmit={handleSignUP}>
                         <div className="form-control">
