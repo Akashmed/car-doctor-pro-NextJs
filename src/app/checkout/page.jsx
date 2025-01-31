@@ -15,16 +15,16 @@ const page = () => {
             message: form.msg.value
         }
         try {
-            const res = await fetch('http://localhost:3000/checkout/api',{
+            const res = await fetch('http://localhost:3000/checkout/api', {
                 method: 'POST',
-                headers:{
+                headers: {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(data)
             })
 
             const dat = await res.json();
-            
+
             if (dat?.data?.acknowledged) {
                 router.push('/');
                 e.target.reset();
@@ -50,9 +50,9 @@ const page = () => {
                 {/* form part */}
                 <form onSubmit={handleSubmit}>
                     <div className="bg-base-200 p-6 md:p-24 rounded-xl gap-5 grid grid-cols-1 md:grid-cols-2 w-full">
-                        <input type="text" name="fname" className="rounded-lg text-black p-4 w-full" placeholder="First Name" required/>
+                        <input type="text" name="fname" className="rounded-lg text-black p-4 w-full" placeholder="First Name" required />
                         <input type="text" name="lname" className="rounded-lg text-black p-4 w-full" placeholder="Last Name" />
-                        <input type="text" name="phone" className="rounded-lg text-black p-4 w-full" placeholder="Your Phone" required/>
+                        <input type="text" name="phone" className="rounded-lg text-black p-4 w-full" placeholder="Your Phone" required />
                         <input type="email" name="email" className="rounded-lg text-black p-4 w-full" placeholder="Your Email" />
                         <textarea rows={6} name="msg" className="rounded-lg text-black p-4 w-full md:col-span-2" placeholder="Your Message" required></textarea>
                         <button className="btn btn-primary w-full md:col-span-2">Order Confirm</button>

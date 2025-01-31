@@ -23,7 +23,7 @@ const page = async ({ params }) => {
                         Service Details
                     </h2>
                     <span className="p-3 px-10 bg-[#FF3811] absolute bottom-0 left-1/2 -translate-x-1/2" style={{
-                    clipPath: "polygon(10% 0, 90% 0, 100% 100%, 0% 100%)",
+                        clipPath: "polygon(10% 0, 90% 0, 100% 100%, 0% 100%)",
                     }}>Home/Services Details</span>
                 </div>
                 <div className="flex flex-col md:flex-row w-full">
@@ -38,8 +38,8 @@ const page = async ({ params }) => {
                             <p className="text-slate-500">{description}</p>
                             <div className="grid grid-cols-2 gap-4">
                                 {facility.length > 0 &&
-                                    facility.map((fcl) => (
-                                        <div className="bg-base-200 border-t-2 border-[#FF3811] p-8 rounded-xl">
+                                    facility.map((fcl,inx) => (
+                                        <div key={inx} className="bg-base-200 border-t-2 border-[#FF3811] p-8 rounded-xl">
                                             <h4 className="text-xl text-black font-semibold">{fcl.name}</h4>
                                             <p className="text-slate-500 text-sm">{fcl.details}</p>
                                         </div>
@@ -52,7 +52,7 @@ const page = async ({ params }) => {
                             <p className="text-slate-500">{description.slice(0, 250)}</p>
                             <div className="grid grid-cols-3 gap-4">
                                 {
-                                    [1, 2, 3].map((it,indx) => (
+                                    [1, 2, 3].map((it, indx) => (
                                         <div key={indx} className="flex flex-col justify-center items-center space-y-3 p-5 border border-slate-300 rounded-xl">
                                             <div className="p-3 bg-[#ff39112d] rounded-full"><p className="p-3 px-4 bg-[#FF3811] rounded-full text-white text-lg font-bold">0{it}</p></div>
                                             <h3 className="text-black text-lg font-semibold">STEP {numWords(it).toUpperCase()}</h3>

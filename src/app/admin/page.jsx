@@ -1,11 +1,13 @@
 'use client'
+import AllBookings from "@/components/AllBookings";
+import NewService from "@/components/NewService";
 import { useState } from "react";
 
 const Page = () => {
     const [activeTab, setActiveTab] = useState("Manage Bookings");
 
     return (
-        <div className="w-full">
+        <div className="w-full p-5 md:p-0">
             <div className="container mx-auto space-y-10">
                 {/* tabs */}
                 <div className="flex justify-center items-center">
@@ -26,9 +28,9 @@ const Page = () => {
                     </div>
                 </div>
                 {/* lower portion */}
-                <div className="p-4 border border-gray-300 mt-2">
-                    {activeTab === "Manage Bookings" && <p>Manage your bookings here.</p>}
-                    {activeTab === "Add New Service" && <p>Add new services from this tab.</p>}
+                <div className="p-4 border border-gray-300 bg-base-200 rounded-xl">
+                    {activeTab === "Manage Bookings" && <div><AllBookings/></div>}
+                    {activeTab === "Add New Service" && <div><NewService/></div>}
                 </div>
             </div>
         </div>

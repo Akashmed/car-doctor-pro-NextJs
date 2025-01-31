@@ -6,7 +6,6 @@ import { IoCartOutline, IoSearchSharp } from "react-icons/io5";
 
 const Navbar = () => {
     const usrInfo = useSession();
-    console.log(usrInfo)
     return (
         <div className="bg-base-100 text-slate-900">
             <div className="navbar container mx-auto">

@@ -14,5 +14,5 @@ export const middleware = async (request) =>{
 }
 
 export const config = {
-    matcher: ['/checkout']
+    matcher: ['/checkout', '/admin']
 }
