@@ -4,7 +4,7 @@ import ServiceCard from '../ServiceCard';
 const Services = async () => {
     const {services} = await getServices();
     return (
-        <div>
+        <div id='services'>
             <div className="text-center">
                 <h3 className="text-2xl font-bold text-[#FF3811]">Our Services</h3>
                 <h2 className="text-5xl text-slate-900">Our Service Area</h2>

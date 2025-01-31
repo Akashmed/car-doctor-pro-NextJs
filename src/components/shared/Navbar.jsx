@@ -6,6 +6,7 @@ import { IoCartOutline, IoSearchSharp } from "react-icons/io5";
 
 const Navbar = () => {
     const usrInfo = useSession();
+    console.log(usrInfo)
     return (
         <div className="bg-base-100 text-slate-900">
             <div className="navbar container mx-auto">
@@ -27,7 +28,10 @@ const Navbar = () => {
                     <div className="flex justify-center items-center space-x-3">
                         <button className="text-2xl"><IoCartOutline /></button>
                         <button className="text-2xl"><IoSearchSharp /></button>
-                        <a className="btn btn-outline btn-primary px-6">Appoinment</a>
+                        {
+                            usrInfo?.data?.user?.type === 'Admin' ? <Link href={'/admin'} className="btn btn-outline btn-primary px-6">Admin</Link> : <Link href={'/checkout'} className="btn btn-outline btn-primary px-6">Appoinment</Link>
+
+                        }
                         {
                             !usrInfo.data ? <Link className="btn btn-outline btn-primary px-6" href={'/login'}>
                                 Login</Link> : <button onClick={signOut} className="btn btn-outline btn-primary px-6">Logout</button>
@@ -45,11 +49,11 @@ const navLinks = [
     },
     {
         title: "About",
-        path: '/about'
+        path: '/#about'
     },
     {
         title: "Services",
-        path: '/services'
+        path: '/#services'
     },
     {
         title: "Blog",

@@ -1,7 +1,7 @@
 
 const About = () => {
     return (
-        <div className="hero min-h-screen container mx-auto">
+        <div id="about" className="hero min-h-screen container mx-auto">
             <div className="hero-content flex-col lg:flex-row">
                 <div className='lg:w-1/2 relative'>
                     <img
