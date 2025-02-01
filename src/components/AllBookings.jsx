@@ -28,7 +28,7 @@ const AllBookings = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ status: 'confirm' }),
+                body: JSON.stringify({ status: 'Approved' }),
             });
 
             if (!response.ok) {
@@ -38,7 +38,7 @@ const AllBookings = () => {
             const updatedData = await response.json();
             setOrders((prevOrders) =>
                 prevOrders.map((order) =>
-                    order._id === id ? { ...order, status: "approved" } : order
+                    order._id === id ? { ...order, status: "Approved" } : order
                 )
             );
         } catch (error) {
