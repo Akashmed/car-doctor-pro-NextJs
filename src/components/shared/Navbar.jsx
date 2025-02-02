@@ -26,9 +26,9 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <div className="flex justify-center items-center space-x-3">
                         <Link href={'/myBookings'} className="text-2xl"><IoCartOutline /></Link>
-                        <button className="text-2xl"><IoSearchSharp /></button>
+                        {/* <button className="text-2xl"><IoSearchSharp /></button> */}
                         {
-                            usrInfo?.data?.user?.type === 'Admin' ? <Link href={'/admin'} className="btn btn-outline btn-primary px-6">Admin</Link> : <Link href={'/checkout'} className="btn btn-outline btn-primary px-6">Appoinment</Link>
+                            usrInfo?.data?.user?.type === 'Admin' ? <Link href={'/admin'} className="btn btn-outline btn-primary px-6">Admin</Link> : <Link href={'/checkout'} className="btn hidden md:inline-flex btn-outline btn-primary md:px-6">Appoinment</Link>
 
                         }
                         {

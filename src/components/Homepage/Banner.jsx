@@ -27,7 +27,7 @@ const Banner = () => {
         },
     ]
     return (
-        <div className="w-full h-[550px] flex justify-center">
+        <div className="w-full h-[550px] flex justify-center p-3 md:p-0">
             <div className="carousel w-full container">
                 {
                     banners.map((bnr, indx) => (
@@ -35,7 +35,7 @@ const Banner = () => {
                             <img src={`/assets/images/banner/${indx + 1}.jpg`} className="w-full rounded-xl object-cover md:object-top" />
                             <div className="absolute rounded-xl flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
                                 <div className='text-white space-y-7 pl-12 w-1/2'>
-                                    <h2 className='text-6xl font-bold'>{bnr.title}</h2>
+                                    <h2 className='md:text-6xl text-2xl font-bold'>{bnr.title}</h2>
                                     <p>{bnr.description}</p>
                                     <div className="">
                                         <button className="btn btn-primary mb-2 md:mb-0 md:mr-5">Discover More</button>
