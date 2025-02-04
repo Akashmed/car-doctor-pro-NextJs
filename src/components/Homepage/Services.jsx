@@ -12,6 +12,7 @@ const Services = () => {
             try {
                 setLoading(true);
                 const { services } = await getServices(); // Fetch services
+                console.log("Fetched services:", services);
                 setSer(services);
             } catch (error) {
                 console.error("Fetching services failed:", error.message);
@@ -48,7 +49,8 @@ const Services = () => {
                 </form>
             </div>
             <div className="w-full flex justify-center">
-                <div className='container grid md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center'>
+                {/* this div in below doesn't get shown in production */}
+                <div className='w-full text-black grid md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center'>
                     {
                         ser?.length > 0 && ser?.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                     }
