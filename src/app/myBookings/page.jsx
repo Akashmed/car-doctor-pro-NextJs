@@ -18,7 +18,6 @@ const page = () => {
         };
         fetchData();
     }, [])
-    console.log(bookings);
     return (
         <div className="w-full">
             <div className="overflow-x-auto container md:w-[90%] mx-auto bg-base-200 rounded-xl">

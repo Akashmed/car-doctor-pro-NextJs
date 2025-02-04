@@ -12,7 +12,6 @@ const Services = () => {
             try {
                 setLoading(true);
                 const { services } = await getServices(); // Fetch services
-                console.log("Fetched services:", services);
                 setSer(services);
             } catch (error) {
                 console.error("Fetching services failed:", error.message);

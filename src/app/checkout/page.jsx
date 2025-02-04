@@ -1,8 +1,11 @@
 'use client'
 
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 const page = () => {
+    const session = useSession();
+    const email  = session?.data?.user?.email;
     const router = useRouter();
     const handleSubmit = async e => {
         e.preventDefault();
@@ -53,7 +56,7 @@ const page = () => {
                         <input type="text" name="fname" className="rounded-lg text-black p-4 w-full" placeholder="First Name" required />
                         <input type="text" name="lname" className="rounded-lg text-black p-4 w-full" placeholder="Last Name" />
                         <input type="text" name="phone" className="rounded-lg text-black p-4 w-full" placeholder="Your Phone" required />
-                        <input type="email" name="email" className="rounded-lg text-black p-4 w-full" placeholder="Your Email" />
+                        <input type="email" name="email" value={email} className="rounded-lg text-black p-4 w-full" placeholder="Your Email" readOnly/>
                         <textarea rows={6} name="msg" className="rounded-lg text-black p-4 w-full md:col-span-2" placeholder="Your Message" required></textarea>
                         <button className="btn btn-primary w-full md:col-span-2">Order Confirm</button>
                     </div>
