@@ -38,7 +38,7 @@ const page = () => {
     }
     return (
         <div className="w-full">
-            <div className="container mx-auto space-y-24 p-5 md:p-0">
+            <div className="md:w-[95%] mx-auto space-y-24 p-5 md:p-0">
                 <div className="relative">
                     {/* Upper banner */}
                     <img src="/assets/images/banner/4.jpg" className="h-[300px] w-full object-cover rounded-xl" />
