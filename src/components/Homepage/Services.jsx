@@ -5,17 +5,32 @@ import { useEffect, useState } from 'react';
 
 const Services = () => {
     const [ser, setSer] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
         const getSer = async () => {
             try {
-                const { services } = await getServices();
+                setLoading(true);
+                const { services } = await getServices(); // Fetch services
                 setSer(services);
             } catch (error) {
-                console.log(error.message)
+                console.error("Fetching services failed:", error.message);
+            } finally {
+                setLoading(false);
             }
-        }
+        };
         getSer();
-    }, [])
+    }, []);
+
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <span className="loading loading-spinner text-error"></span>
+            </div>
+        );
+    }
+
+
     return (
         <div id='services'>
             <div className="text-center">

@@ -7,7 +7,7 @@ const AllBookings = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const response = await fetch("http://localhost:3000/admin/api/bookings");
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/api/bookings`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch orders");
                 }
@@ -23,7 +23,7 @@ const AllBookings = () => {
 
     const handleApprove = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3000/admin/api/${id}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/api/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

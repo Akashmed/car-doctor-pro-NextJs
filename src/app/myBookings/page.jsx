@@ -9,7 +9,7 @@ const page = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/myBookings/api?email=${email}`);
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/myBookings/api?email=${email}`);
                 const data = await response.json();
                 setBookings(data?.myBookings);
             } catch (error) {
@@ -21,7 +21,7 @@ const page = () => {
     console.log(bookings);
     return (
         <div className="w-full">
-            <div className="overflow-x-auto container mx-auto bg-base-200 rounded-xl">
+            <div className="overflow-x-auto container md:w-[90%] mx-auto bg-base-200 rounded-xl">
                 <table className="table">
                     {/* head */}
                     <thead>

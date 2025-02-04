@@ -1,10 +1,8 @@
 
 const NewService = () => {
-    const handleSubmit =async e =>{
-        
-    }
+   
     return (
-        <form onSubmit={handleSubmit}>
+        <form>
             <div className="p-6 md:p-24 rounded-xl gap-5 grid grid-cols-1 md:grid-cols-2 w-full">
                 <input type="text" name="name" className="rounded-lg text-black p-4 w-full" placeholder="Service Name" required />
                 <input type="text" name="type" className="rounded-lg text-black p-4 w-full" placeholder="Service Type" />

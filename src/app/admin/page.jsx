@@ -8,7 +8,7 @@ const Page = () => {
 
     return (
         <div className="w-full p-5 md:p-0">
-            <div className="container mx-auto space-y-10">
+            <div className="container md:w-[90%] mx-auto space-y-10">
                 {/* tabs */}
                 <div className="flex justify-center items-center">
                     <div className="flex overflow-x-auto whitespace-nowrap">

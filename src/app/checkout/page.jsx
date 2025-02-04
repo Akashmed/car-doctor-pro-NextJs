@@ -15,7 +15,7 @@ const page = () => {
             message: form.msg.value
         }
         try {
-            const res = await fetch('http://localhost:3000/checkout/api', {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout/api`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

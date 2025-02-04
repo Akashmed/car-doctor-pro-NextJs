@@ -8,7 +8,7 @@ const Navbar = () => {
     const usrInfo = useSession();
     return (
         <div className="bg-base-100 text-slate-900">
-            <div className="navbar container mx-auto">
+            <div className="navbar container md:w-[95%] mx-auto">
                 <div className="navbar-start">
                     <Link href={'/'}>
                         <Image src={'/assets/logo.svg'} alt="logo" height={60} width={100} />

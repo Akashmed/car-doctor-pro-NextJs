@@ -1,8 +1,6 @@
 'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-import { FcGoogle } from "react-icons/fc";
-import { FaGithub } from "react-icons/fa";
 import SocialLogin from '@/components/SocialLogin';
 
 
@@ -16,7 +14,7 @@ const page = () => {
             password: form.password.value
         };
         try {
-            const res = await fetch(`http://localhost:3000/signup/api`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/signup/api`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -44,7 +42,7 @@ const page = () => {
                 <Image src={'/assets/images/login/login.svg'} height={340} width={440} alt='login page' />
             </div>
             <div className='text-black flex justify-center items-center w-full'>
-                <div className="w-2/3 rounded-lg shadow-lg border border-base-300 p-7 h-[90%] flex flex-col justify-center">
+                <div className="w-2/3 rounded-lg shadow-lg border border-base-300 p-7 h-auto flex flex-col justify-center">
                     <h1 className="text-3xl text-center font-bold">Sign Up</h1>
                     <form onSubmit={handleSignUP}>
                         <div className="form-control">
