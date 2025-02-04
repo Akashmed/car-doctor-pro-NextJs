@@ -1,8 +1,21 @@
+'use client'
 import { getServices } from '@/services/getServices';
 import ServiceCard from '../ServiceCard';
+import { useEffect, useState } from 'react';
 
-const Services = async () => {
-    const {services} = await getServices();
+const Services = () => {
+    const [ser, setSer] = useState([]);
+    useEffect(() => {
+        const getSer = async () => {
+            try {
+                const { services } = await getServices();
+                setSer(services);
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+        getSer();
+    }, [])
     return (
         <div id='services'>
             <div className="text-center">
@@ -22,7 +35,7 @@ const Services = async () => {
             <div className="w-full flex justify-center">
                 <div className='container grid md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center'>
                     {
-                       services?.length > 0 && services?.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
+                        ser?.length > 0 && ser?.map(service => <ServiceCard key={service._id} service={service}></ServiceCard>)
                     }
                 </div>
             </div>
