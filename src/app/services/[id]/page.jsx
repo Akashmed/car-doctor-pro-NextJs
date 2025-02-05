@@ -2,8 +2,9 @@
 
 import ServiceDetails from "./serviceDetails";
 
-const Page = ({ params }) => {
-    return <ServiceDetails serviceId={params.id} />;
+const Page = async ({ params }) => {
+    const { id } = await params;
+    return <ServiceDetails serviceId={id} />;
 };
 
 export default Page;

@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { Suspense } from 'react';
 
 const SocialLogin = () => {
     const router = useRouter();
@@ -23,10 +24,12 @@ const SocialLogin = () => {
     }, [session?.status, router]);
 
     return (
-        <div className='flex justify-center items-center gap-3 mt-4'>
-            <button onClick={() => loginHandler('google')} className='text-2xl rounded-full p-3 bg-base-200'><FcGoogle /></button>
-            <button onClick={() => loginHandler('github')} className='text-2xl rounded-full p-3 bg-base-200'><FaGithub /></button>
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+            <div className='flex justify-center items-center gap-3 mt-4'>
+                <button onClick={() => loginHandler('google')} className='text-2xl rounded-full p-3 bg-base-200'><FcGoogle /></button>
+                <button onClick={() => loginHandler('github')} className='text-2xl rounded-full p-3 bg-base-200'><FaGithub /></button>
+            </div>
+        </Suspense>
     );
 };
 
