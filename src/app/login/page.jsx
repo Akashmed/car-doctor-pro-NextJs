@@ -2,12 +2,15 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import SocialLogin from '@/components/SocialLogin';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 
 const page = () => {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const redirect = searchParams?.get("redirect");
+
     const handleLogin = async (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -17,8 +20,10 @@ const page = () => {
             password,
             redirect: false
         });
-        if(resp.status === 200){
-            router.push('/')
+        if (resp.status === 200) {
+            setTimeout(() => {
+                router.replace(redirect);
+            }, 100);
         }
     }
     return (
@@ -26,8 +31,8 @@ const page = () => {
             <div className='text-black flex justify-center items-center w-full p-5'>
                 <Image src={'/assets/images/login/login.svg'} height={340} width={440} alt='login page' />
             </div>
-            <div className='text-black flex justify-center items-center w-full'>
-                <div className="w-2/3 rounded-lg shadow-lg border border-base-300 p-7 h-[90%] flex flex-col justify-center">
+            <div className='text-black flex justify-center items-center p-3 md:p-0 w-full'>
+                <div className="md:w-2/3 w-full rounded-lg shadow-lg border border-base-300 p-7 h-[90%] flex flex-col justify-center">
                     <h1 className="text-3xl text-center font-bold">Login</h1>
                     <form onSubmit={handleLogin}>
                         <div className="form-control">
@@ -52,7 +57,7 @@ const page = () => {
                     <div className='flex flex-col items-center mt-4'>
                         <span>Or sign in with</span>
                         <div>
-                            <SocialLogin/>
+                            <SocialLogin />
                         </div>
                     </div>
                     <p className='my-4 text-center'>New to Car Doctor ? <Link href={'/signup'} className='text-orange-600 font-bold'>Sign Up</Link> </p>
