@@ -2,12 +2,22 @@
 
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
-const page = () => {
-    const session = useSession();
-    const email  = session?.data?.user?.email;
+const Page = () => {
+    const { data: session } = useSession();
     const router = useRouter();
-    const handleSubmit = async e => {
+
+    // Fix: Ensure email has a default value
+    const [email, setEmail] = useState("");
+
+    useEffect(() => {
+        if (session?.user?.email) {
+            setEmail(session.user.email);
+        }
+    }, [session]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
         const data = {
@@ -16,15 +26,14 @@ const page = () => {
             phone: form.phone.value,
             email: form.email.value,
             message: form.msg.value
-        }
+        };
+
         try {
             const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout/api`, {
                 method: 'POST',
-                headers: {
-                    'content-type': 'application/json'
-                },
+                headers: { 'content-type': 'application/json' },
                 body: JSON.stringify(data)
-            })
+            });
 
             const dat = await res.json();
 
@@ -35,7 +44,8 @@ const page = () => {
         } catch (error) {
             console.log(error.message);
         }
-    }
+    };
+
     return (
         <div className="w-full">
             <div className="md:w-[95%] mx-auto space-y-24 p-5 md:p-0">
@@ -56,17 +66,17 @@ const page = () => {
                         <input type="text" name="fname" className="rounded-lg text-black p-4 w-full" placeholder="First Name" required />
                         <input type="text" name="lname" className="rounded-lg text-black p-4 w-full" placeholder="Last Name" />
                         <input type="text" name="phone" className="rounded-lg text-black p-4 w-full" placeholder="Your Phone" required />
-                        <input type="email" name="email" value={email} className="rounded-lg text-black p-4 w-full" placeholder="Your Email" readOnly/>
+
+                        {/* Fix: Ensure email starts as an empty string to avoid the controlled/uncontrolled warning */}
+                        <input type="email" name="email" value={email} className="rounded-lg text-black p-4 w-full" placeholder="Your Email" readOnly />
+
                         <textarea rows={6} name="msg" className="rounded-lg text-black p-4 w-full md:col-span-2" placeholder="Your Message" required></textarea>
                         <button className="btn btn-primary w-full md:col-span-2">Order Confirm</button>
                     </div>
                 </form>
-
-
             </div>
-
         </div>
     );
 };
 
-export default page;
+export default Page;

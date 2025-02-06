@@ -13,7 +13,7 @@ const CarDoctor = () => {
             <div className="p-10 bg-white relative rounded-xl">
                 <p className="text-2xl text-black font-semibold"><span className="text-[#FF3811]">Car Doctor</span> Special</p>
                 <p className="text-center font-bold text-black">Save Up To <span className="text-[#FF3811]">60% Off</span></p>
-                <span className="bg-[#FF3811] text-white cursor-pointer font-bold rounded-lg px-5 sm:py-3 md:py-0 lg:py-3 absolute left-1/2 -translate-x-1/2 -bottom-5">Get A Quote</span>
+                <span className="bg-[#FF3811] text-white cursor-pointer font-bold rounded-lg px-5 py-3 md:py-0 lg:py-3 absolute left-1/2 -translate-x-1/2 -bottom-5">Get A Quote</span>
             </div>
         </div>
     );

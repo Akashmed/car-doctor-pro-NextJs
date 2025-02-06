@@ -7,22 +7,14 @@ import { FcGoogle } from "react-icons/fc";
 
 // Handle login logic separately
 const SocialLoginHandler = () => {
-    const router = useRouter();
     const session = useSession();
     const searchParams = useSearchParams();
-    const redirect = searchParams?.get("redirect") || '/'; // Fallback redirect
+    const redirect = searchParams?.get("redirect") ;
 
     const loginHandler = async (provider) => {
-        await signIn(provider, { redirect: false });
+        await signIn(provider, { redirect: true, callbackUrl: redirect || '/' });
     };
 
-    useEffect(() => {
-        if (session.status === 'authenticated') {
-            setTimeout(() => {
-                router.replace(redirect);
-            }, 100);
-        }
-    }, [session.status]);  // Removed router from dependencies
 
     return (
         <div className='flex justify-center items-center gap-3 mt-4'>
